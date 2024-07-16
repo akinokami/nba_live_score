@@ -1,6 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:nba_live_score/views/widgets/custom_text.dart';
+import 'package:nba_live_score/views/widgets/events_widget.dart';
+import 'package:nba_live_score/views/widgets/match_widget.dart';
+import 'package:nba_live_score/views/widgets/roster_widget.dart';
+import 'package:nba_live_score/views/widgets/status_widget.dart';
 
 class MatchDetailScreen extends StatefulWidget {
   const MatchDetailScreen({super.key});
@@ -89,7 +93,6 @@ class _MatchDetailScreenState extends State<MatchDetailScreen>
               ),
               child: TabBar(
                 controller: tabController,
-                // give the indicator a decoration (color and border radius)
                 indicator: BoxDecoration(
                   borderRadius: BorderRadius.circular(
                     25.0,
@@ -121,125 +124,10 @@ class _MatchDetailScreenState extends State<MatchDetailScreen>
               child: TabBarView(
                 controller: tabController,
                 children: const [
-                  Column(
-                    children: [
-                      Row(
-                        children: [
-                          Icon(Icons.schedule_outlined),
-                          SizedBox(width: 10),
-                          CustomText(text: 'Ended'),
-                        ],
-                      ),
-                      SizedBox(height: 10),
-                      Row(
-                        children: [
-                          Icon(Icons.calendar_month_outlined),
-                          SizedBox(width: 10),
-                          CustomText(
-                            text: 'Today\n10:00',
-                            maxLines: 2,
-                          ),
-                        ],
-                      ),
-                      SizedBox(height: 10),
-                      Row(
-                        children: [
-                          Icon(Icons.sports_basketball_outlined),
-                          SizedBox(width: 10),
-                          CustomText(text: 'Round 1'),
-                        ],
-                      ),
-                      SizedBox(height: 10),
-                      Row(
-                        children: [
-                          Icon(Icons.emoji_events_outlined),
-                          SizedBox(width: 10),
-                          CustomText(text: 'NBA Summer League'),
-                        ],
-                      ),
-                      SizedBox(height: 10),
-                      Row(
-                        children: [
-                          Icon(Icons.tv_outlined),
-                          SizedBox(width: 10),
-                          CustomText(text: 'NBA League Pass'),
-                        ],
-                      ),
-                      SizedBox(height: 10),
-                      Row(
-                        children: [
-                          Icon(Icons.grid_3x3_outlined),
-                          SizedBox(width: 10),
-                          Expanded(
-                            child: Column(
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    CustomText(text: 'Q1'),
-                                    CustomText(text: 'Q2'),
-                                    CustomText(text: 'Q3'),
-                                    CustomText(text: 'Q4'),
-                                    CustomText(text: 'Total'),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    CustomText(text: 'Q1'),
-                                    CustomText(text: 'Q2'),
-                                    CustomText(text: 'Q3'),
-                                    CustomText(text: 'Q4'),
-                                    CustomText(text: 'Total'),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    CustomText(text: 'Q1'),
-                                    CustomText(text: 'Q2'),
-                                    CustomText(text: 'Q3'),
-                                    CustomText(text: 'Q4'),
-                                    CustomText(text: 'Total'),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                  Center(
-                    child: Text(
-                      'Buy Now',
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                  Center(
-                    child: Text(
-                      'Place Bid',
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                  Center(
-                    child: Text(
-                      'Buy Now',
-                      style: TextStyle(
-                        fontSize: 25,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
+                  MatchWidget(),
+                  StatusWidget(),
+                  EventsWidget(),
+                  RosterWidget(),
                 ],
               ),
             ),

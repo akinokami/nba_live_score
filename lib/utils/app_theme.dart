@@ -36,4 +36,5 @@ class AppTheme {
   static const greyTicket = Color(0xFFDBDBDB);
   static const iconBlack = Color(0xFF000000);
   static const iconGrey = Color(0xFFB6B6B6);
+  static const orange = Color.fromARGB(255, 229, 121, 33);
 }
